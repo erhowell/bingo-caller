@@ -4,7 +4,7 @@
 
 ## Warning this is still a work in progress
 
-FAQ
+## FAQ
 
 - What is this?
   - With over 2 years of professional experience calling bingo underneath my belt, I am designing this application as a supplemental tool to get bingo callers to the next level. While nothing can replace the traditional cage and balls, this application will hopefully help both the casual bingo hobbiest or the high stakes bingo caller train for their next big event.
