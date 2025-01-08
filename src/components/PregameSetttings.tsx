@@ -5,7 +5,6 @@ import ReusableModal from "./Modals/ReusableModal";
 import CalloutModalContent from "./Modals/CalloutModalContent";
 import Button from "@/components/common/Button";
 import Input from "@/components/common/Input";
-import { token } from "styled-system/tokens";
 import { css } from "styled-system/css";
 
 export default function PregameSettings({
@@ -48,33 +47,37 @@ export default function PregameSettings({
             <Input
               type="radio"
               id="75-balls"
-              name="ballCount"
               value="75"
               checked={ballCount == 75}
               onChange={(e) => setBallCount(Number(e.target.value))}
             />
-            <styled.label fontWeight="bold"> 75</styled.label>
+            <styled.label htmlFor="75-balls" fontWeight="bold">
+              75
+            </styled.label>
           </Flex>
           <Flex align="center" gap="1" py="2">
             <Input
               type="radio"
               id="90-balls"
-              name="ballCount"
               value="90"
               checked={ballCount == 90}
               onChange={(e) => setBallCount(Number(e.target.value))}
             />
-            <styled.label fontWeight="bold"> 90</styled.label>
+            <styled.label htmlFor="90-balls" fontWeight="bold">
+              {" "}
+              90
+            </styled.label>
           </Flex>
         </Flex>
         <Flex align="center" gap="2" py="2">
           <Flex flex="1" align="center" gap="1">
             <Input
+              id="show-calls"
               type="checkbox"
               checked={displayCallouts}
               onChange={() => setDisplayCallouts(!displayCallouts)}
             />
-            <styled.label fontWeight="bold" textStyle="p">
+            <styled.label htmlFor="show-calls" fontWeight="bold" textStyle="p">
               {" "}
               Show Calls
             </styled.label>

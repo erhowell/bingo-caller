@@ -18,11 +18,11 @@ const DEFAULT_MODAL_STYLES = css.raw({
   borderRadius: "lg",
   px: "10",
   py: "12",
-  bg: "theme.black",
-  color: "theme.white",
+  bg: "bingo.black",
+  color: "bingo.white",
 });
 const DEFAULT_OVERLAY_STYLE = css.raw({
-  bg: "theme.darkGray/95",
+  bg: "bingo.darkGray/95",
   position: "fixed",
   top: 0,
   left: 0,

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "globalDependencies": ["**/.env.*local"],
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": [".next/**", "!.next/cache/**"],
+      "env": ["FLASK_URL", "NEXT_PUBLIC_VF_API_URL", "NEXT_PUBLIC_BASE_URL", "NEXT_PUBLIC_HOST","NEXT_PUBLIC_SANITY_PERSPECTIVE"]
+    },
+    "lint": {
+      "dependsOn": ["^lint"]
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    }
+  }
+}

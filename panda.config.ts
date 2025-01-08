@@ -83,24 +83,26 @@ export default defineConfig({
 
   // Files to exclude
   exclude: [],
-
+  globalCss: {
+    html: {
+      "--global-color-placeholder": "bingo.white",
+    },
+  },
   // Useful for theme customization
   theme: {
     extend: {
       textStyles,
       tokens: {
         colors: {
-          theme: {
-            black: { value: "#232528" },
-            darkGray: { value: "#484D53" },
-            blue: { value: "#0EA5E9" },
-            white: { value: "#FBFBFB" },
-          },
-          ball: {
+          bingo: {
             blue: { value: "#001FEB" },
+            lightBlue: { value: "#03d1ff" },
+            black: { value: "#232528" },
             red: { value: "#C50303" },
             green: { value: "#018A16" },
             yellow: { value: "#FFCC00" },
+            darkGray: { value: "#484D53" },
+            white: { value: "#FFFFFF" },
           },
         },
       },

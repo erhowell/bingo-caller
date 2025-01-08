@@ -3,8 +3,8 @@ import { Flex, Box, styled, Container } from "styled-system/jsx";
 
 export default function Layout({ children }) {
   return (
-    <styled.main color="theme.white">
-      <styled.nav bg="theme.blue" color="theme.black">
+    <styled.main color="bingo.white">
+      <styled.nav bg="bingo.lightBlue" color="bingo.black">
         <Container maxW="1200px" py="4">
           <Flex justify="space-between" align="center">
             <Box textStyle="h3">

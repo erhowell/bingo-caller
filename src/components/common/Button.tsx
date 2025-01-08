@@ -13,19 +13,20 @@ const buttonStyles = cva({
   variants: {
     visual: {
       primary: {
-        bg: "theme.blue",
+        color: "bingo.black",
+        bg: "bingo.lightBlue",
       },
       secondary: {
-        bg: "theme.white",
-        color: "theme.blue",
+        bg: "bingo.black",
+        color: "bingo.lightBlue",
         borderWidth: "2px",
-        borderColor: "theme.blue",
+        borderColor: "bingo.lightBlue",
       },
       outline: {
         bg: "transparent",
-        color: "theme.blue",
+        color: "bingo.lightBlue",
         borderWidth: "2px",
-        borderColor: "theme.blue",
+        borderColor: "bingo.lightBlue",
       },
     },
   },

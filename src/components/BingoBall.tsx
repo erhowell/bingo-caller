@@ -6,18 +6,18 @@ const bingoBallTheme = sva({
   base: {
     root: { w: "fit-content", p: [4, 6], borderRadius: "full" },
     inner: {
-      color: "theme.black",
-      bg: "theme.white",
+      color: "bingo.black",
+      bg: "bingo.white",
       borderRadius: "full",
     },
   },
   variants: {
     column: {
       B: {
-        root: { bg: "ball.blue" },
+        root: { bg: "bingo.blue" },
       },
       I: {
-        root: { bg: "ball.red" },
+        root: { bg: "bingo.red" },
       },
       N: {
         root: { bg: "gray.100" },
@@ -27,10 +27,10 @@ const bingoBallTheme = sva({
         },
       },
       G: {
-        root: { bg: "ball.green" },
+        root: { bg: "bingo.green" },
       },
       O: {
-        root: { bg: "ball.yellow" },
+        root: { bg: "bingo.yellow" },
       },
       BINGO: {
         root: { bg: "purple.400" },

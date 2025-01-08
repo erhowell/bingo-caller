@@ -6,20 +6,26 @@ function CalloutColumn({ id, callout }) {
   return (
     <>
       <GridItem colSpan={1}>
-        <styled.label display="inline" px="2" fontWeight="bold">
+        <styled.label
+          htmlFor={`callout-${id}`}
+          display="inline"
+          px="2"
+          fontWeight="bold"
+        >
           {id + 1}
         </styled.label>
       </GridItem>
       <GridItem colSpan={11}>
         <styled.input
           type="text"
+          id={`callout-${id}`}
           name={id}
           defaultValue={callout}
           px="1"
           w="full"
           display="inline"
           borderWidth="2px"
-          borderColor="theme.white"
+          borderColor="bingo.white"
           borderRadius="lg"
         />
       </GridItem>
@@ -60,13 +66,13 @@ export default function CalloutModalContent({
   // };
 
   return (
-    <styled.div color="theme.white">
+    <styled.div color="bingo.white">
       <styled.h3 textStyle="h3"> Update Bingo Calls</styled.h3>
       {/* <styled.label>Bulk update by pasting a csv</styled.label>
       <styled.textarea
         w="full"
         borderWidth="2px"
-        borderColor="theme.white"
+        borderColor="bingo.white"
         borderRadius="lg"
         onChange={bulkUpdateCallouts}
       />

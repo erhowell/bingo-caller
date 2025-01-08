@@ -28,7 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${roboto.variable} ${mukta.variable}`}>
-      <styled.body bg="theme.black">{children}</styled.body>
+      <styled.body bg="bingo.black">{children}</styled.body>
     </html>
   );
 }

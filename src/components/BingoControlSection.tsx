@@ -62,7 +62,7 @@ export default function BingoControlSection({
           minH="200px"
           p="4"
           borderWidth="2px"
-          borderColor="theme.white"
+          borderColor="bingo.bingo.white"
           borderRadius="lg"
         >
           <styled.h5 textStyle="h5">current ball:</styled.h5>
@@ -98,8 +98,8 @@ export default function BingoControlSection({
                 <Button
                   disabled={!!intervalId || callIdx < 0}
                   _disabled={{
-                    color: "theme.white",
-                    borderColor: "theme.white",
+                    color: "bingo.white",
+                    borderColor: "bingo.white",
                   }}
                   onClick={() => {
                     if (callIdx < balls?.length) {
@@ -125,16 +125,19 @@ export default function BingoControlSection({
                     Autoplay Speed:
                   </styled.p>
                   <Input
+                    id="autoplay-speed"
                     type="number"
                     defaultValue={5}
                     width="10"
                     borderWidth="2px"
-                    borderColor="theme.white"
+                    borderColor="bingo.white"
                     borderRadius="lg"
                     textAlign="center"
                     onChange={(e) => setIntervalSeconds(Number(e.target.value))}
                   />
-                  <styled.label px="0.5">seconds</styled.label>
+                  <styled.label htmlFor="autoplay-speed" px="0.5">
+                    seconds
+                  </styled.label>
                 </Box>
                 <Box>
                   <Button
@@ -154,7 +157,7 @@ export default function BingoControlSection({
           h={["150px", null, null, "full"]}
           p="4"
           borderWidth="2px"
-          borderColor="theme.white"
+          borderColor="bingo.white"
           borderRadius="lg"
         >
           <PreviousCalls balls={balls} callIdx={callIdx} />

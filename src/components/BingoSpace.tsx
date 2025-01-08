@@ -8,7 +8,7 @@ export default function BingoSpace({ space }: { space: any }) {
       <styled.h3
         py="0.5"
         textStyle="h3"
-        color={space.marked ? "theme.white" : "theme.darkGray"}
+        color={space.marked ? "white" : "bingo.darkGray"}
       >
         {space.value}
       </styled.h3>
