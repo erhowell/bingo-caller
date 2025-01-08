@@ -1,5 +1,6 @@
 import { styled, Flex, Box } from "styled-system/jsx";
-import BingoSpace from "./BingoSpace";
+
+import BingoSpace from "@/components/BingoSpace";
 
 export default function MasterBoard({ board }: { board: Board }) {
   return (

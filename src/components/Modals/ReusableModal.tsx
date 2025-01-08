@@ -1,14 +1,48 @@
 import Modal from "react-modal";
-import { styled } from "styled-system/jsx";
+import { css } from "styled-system/css";
 
 Modal.setAppElement("#main");
 
-export default function ReusableModal({ isOpen, onClose, children, style }) {
+const DEFAULT_MODAL_STYLES = css.raw({
+  width: ["5/6", "1/2", "1/3"],
+  height: "4/5",
+  overflow: "auto",
+  top: "50%",
+  left: "50%",
+  right: "auto",
+  bottom: "auto",
+  marginRight: "-50%",
+  transform: "translate(-50%, -50%)",
+  position: "absolute",
+  WebkitOverflowScrolling: "touch",
+  borderRadius: "lg",
+  px: "10",
+  py: "12",
+  bg: "theme.black",
+  color: "theme.white",
+});
+const DEFAULT_OVERLAY_STYLE = css.raw({
+  bg: "theme.darkGray/95",
+  position: "fixed",
+  top: 0,
+  left: 0,
+  right: 0,
+  bottom: 0,
+});
+
+export default function ReusableModal({
+  isOpen,
+  onClose,
+  children,
+  modalStyle,
+  overlayStyle = null,
+}) {
   return (
     <Modal
       isOpen={isOpen}
       onRequestClose={onClose}
-      style={style}
+      className={css(DEFAULT_MODAL_STYLES, modalStyle)}
+      overlayClassName={css(DEFAULT_OVERLAY_STYLE, overlayStyle)}
       contentLabel="Bingo Modal"
     >
       {children}

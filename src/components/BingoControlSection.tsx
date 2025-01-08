@@ -1,8 +1,10 @@
 import { Box, Flex, styled, VStack } from "styled-system/jsx";
-import BingoBall from "./BingoBall";
-
-import PreviousCalls from "./PreviousCalls";
 import { useState } from "react";
+
+import Button from "@/components/common/Button";
+import BingoBall from "@/components/BingoBall";
+import PreviousCalls from "@/components/PreviousCalls";
+import Input from "@/components/common/Input";
 
 export default function BingoControlSection({
   callIdx,
@@ -54,24 +56,13 @@ export default function BingoControlSection({
         w="full"
         flex="1"
       >
-        <styled.button
-          py="2"
-          px="4"
-          w="full"
-          borderWidth="2px"
-          borderColor="slate.500"
-          borderRadius="full"
-          onClick={handleResetButtonClick}
-          textStyle="h5"
-        >
-          Reset Game
-        </styled.button>
+        <Button onClick={handleResetButtonClick}>Reset Game</Button>
         <VStack
           w="full"
           minH="200px"
           p="4"
           borderWidth="2px"
-          borderColor="slate.500"
+          borderColor="theme.white"
           borderRadius="lg"
         >
           <styled.h5 textStyle="h5">current ball:</styled.h5>
@@ -104,18 +95,11 @@ export default function BingoControlSection({
               justify="space-between"
             >
               <Box>
-                <styled.button
-                  py="2"
-                  px="4"
-                  w="full"
-                  borderWidth="2px"
-                  borderColor="slate.500"
-                  borderRadius="full"
-                  textStyle="h5"
+                <Button
                   disabled={!!intervalId || callIdx < 0}
                   _disabled={{
-                    color: "slate.500",
-                    borderColor: "slate.300",
+                    color: "theme.white",
+                    borderColor: "theme.white",
                   }}
                   onClick={() => {
                     if (callIdx < balls?.length) {
@@ -124,7 +108,7 @@ export default function BingoControlSection({
                   }}
                 >
                   Next Ball
-                </styled.button>
+                </Button>
               </Box>
               <Flex
                 gap={["0", null, null, "3"]}
@@ -140,12 +124,12 @@ export default function BingoControlSection({
                   >
                     Autoplay Speed:
                   </styled.p>
-                  <styled.input
+                  <Input
                     type="number"
                     defaultValue={5}
                     width="10"
                     borderWidth="2px"
-                    borderColor="slate.500"
+                    borderColor="theme.white"
                     borderRadius="lg"
                     textAlign="center"
                     onChange={(e) => setIntervalSeconds(Number(e.target.value))}
@@ -153,19 +137,13 @@ export default function BingoControlSection({
                   <styled.label px="0.5">seconds</styled.label>
                 </Box>
                 <Box>
-                  <styled.button
-                    py="2"
-                    px="4"
+                  <Button
                     hidden={callIdx < 0}
-                    borderWidth="2px"
-                    borderColor="slate.500"
-                    borderRadius="full"
                     onClick={toggleAutoCall}
-                    textStyle="h5"
                     display="inline"
                   >
                     {!!intervalId ? "Stop" : "Start"} Autoplay
-                  </styled.button>
+                  </Button>
                 </Box>
               </Flex>
             </Flex>
@@ -176,7 +154,7 @@ export default function BingoControlSection({
           h={["150px", null, null, "full"]}
           p="4"
           borderWidth="2px"
-          borderColor="slate.500"
+          borderColor="theme.white"
           borderRadius="lg"
         >
           <PreviousCalls balls={balls} callIdx={callIdx} />

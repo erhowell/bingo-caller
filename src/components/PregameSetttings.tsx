@@ -3,6 +3,10 @@ import { Flex, styled } from "styled-system/jsx";
 
 import ReusableModal from "./Modals/ReusableModal";
 import CalloutModalContent from "./Modals/CalloutModalContent";
+import Button from "@/components/common/Button";
+import Input from "@/components/common/Input";
+import { token } from "styled-system/tokens";
+import { css } from "styled-system/css";
 
 export default function PregameSettings({
   ballCount,
@@ -15,24 +19,17 @@ export default function PregameSettings({
 }) {
   const [isCalloutModalOpen, toggleCalloutModal] = useState(false);
   const closeModal = () => toggleCalloutModal(false);
+
   return (
     <styled.div>
       <ReusableModal
         isOpen={isCalloutModalOpen}
         onClose={closeModal}
-        style={{
-          content: {
-            width: "30%",
-            height: "100%",
-            overflow: "auto",
-            top: "50%",
-            left: "50%",
-            right: "auto",
-            bottom: "auto",
-            marginRight: "-50%",
-            transform: "translate(-50%, -50%)",
-          },
-        }}
+        modalStyle={css.raw({
+          width: ["5/6", "1/2", "2/5"],
+          height: "4/5",
+          overflow: "auto",
+        })}
       >
         <CalloutModalContent
           maxBallCount={ballCount}
@@ -42,10 +39,13 @@ export default function PregameSettings({
         />
       </ReusableModal>
       <styled.div w={["full", "1/2"]}>
-        <Flex gap="4">
-          <styled.p fontWeight="bold">Ball Count:</styled.p>
-          <styled.div>
-            <styled.input
+        <Flex gap="4" align="center">
+          <styled.p fontWeight="bold" textStyle="h6">
+            Ball Count:
+          </styled.p>
+
+          <Flex align="center" gap="1" py="2">
+            <Input
               type="radio"
               id="75-balls"
               name="ballCount"
@@ -54,9 +54,9 @@ export default function PregameSettings({
               onChange={(e) => setBallCount(Number(e.target.value))}
             />
             <styled.label fontWeight="bold"> 75</styled.label>
-          </styled.div>
-          <styled.div>
-            <styled.input
+          </Flex>
+          <Flex align="center" gap="1" py="2">
+            <Input
               type="radio"
               id="90-balls"
               name="ballCount"
@@ -65,43 +65,34 @@ export default function PregameSettings({
               onChange={(e) => setBallCount(Number(e.target.value))}
             />
             <styled.label fontWeight="bold"> 90</styled.label>
-          </styled.div>
+          </Flex>
         </Flex>
-        <Flex align="stretch" gap="2" py="4">
-          <styled.div>
-            <styled.input
+        <Flex align="center" gap="2" py="2">
+          <Flex flex="1" align="center" gap="1">
+            <Input
               type="checkbox"
               checked={displayCallouts}
               onChange={() => setDisplayCallouts(!displayCallouts)}
             />
-            <styled.label fontWeight="bold"> Show Calls</styled.label>
-          </styled.div>
+            <styled.label fontWeight="bold" textStyle="p">
+              {" "}
+              Show Calls
+            </styled.label>
+          </Flex>
           {displayCallouts && (
-            <styled.button
-              py="1"
-              px="4"
-              borderWidth="2px"
-              borderColor="slate.500"
-              borderRadius="full"
+            <Button
+              flex="1"
+              visual="secondary"
               onClick={() => toggleCalloutModal(true)}
               textStyle="h6"
             >
               Edit Call outs
-            </styled.button>
+            </Button>
           )}
         </Flex>
-        <styled.button
-          py="2"
-          px="4"
-          w="full"
-          borderWidth="2px"
-          borderColor="slate.500"
-          borderRadius="full"
-          onClick={startGame}
-          textStyle="h5"
-        >
+        <Button onClick={startGame} my="2">
           Start Game
-        </styled.button>
+        </Button>
       </styled.div>
     </styled.div>
   );

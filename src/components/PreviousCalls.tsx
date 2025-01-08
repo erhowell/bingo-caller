@@ -1,5 +1,6 @@
 import { Grid, GridItem, styled } from "styled-system/jsx";
-import BingoBall from "./BingoBall";
+
+import BingoBall from "@/components/BingoBall";
 
 export default function PreviousCalls({ balls, callIdx }) {
   return (

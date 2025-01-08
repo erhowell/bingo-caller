@@ -4,11 +4,12 @@ import { useEffect, useState } from "react";
 import { Box, Container, Flex, styled } from "styled-system/jsx";
 
 import MasterBoard from "@/components/MasterBoard";
-import ReusableModal from "./Modals/ReusableModal";
-import ResetModalContent from "./Modals/ResetModalContent";
-import BingoControlSection from "./BingoControlSection";
-import PregameSettings from "./PregameSetttings";
+import ReusableModal from "@/components/Modals/ReusableModal";
+import ResetModalContent from "@/components/Modals/ResetModalContent";
+import BingoControlSection from "@/components/BingoControlSection";
+import PregameSettings from "@/components/PregameSetttings";
 import DEFAULT_BINGO_CALLS from "@/lib/callouts";
+import { css } from "styled-system/css";
 
 function generateBingoBalls(max) {
   const balls: BingoBall[] = [];
@@ -103,22 +104,11 @@ export default function BingoCallerPage() {
     }
   };
   return (
-    <styled.section w="full" bg="gray.200" id="main">
+    <styled.section w="full" color="slate.200" id="main">
       <ReusableModal
         isOpen={isModalOpen}
         onClose={closeModule}
-        style={{
-          content: {
-            width: "20%",
-            height: "fit-content",
-            top: "50%",
-            left: "50%",
-            right: "auto",
-            bottom: "auto",
-            marginRight: "-50%",
-            transform: "translate(-50%, -50%)",
-          },
-        }}
+        modalStyle={css.raw({ height: "fit-content" })}
       >
         <ResetModalContent onClose={closeModule} resetGame={resetBoard} />{" "}
       </ReusableModal>

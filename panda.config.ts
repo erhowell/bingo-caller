@@ -90,8 +90,14 @@ export default defineConfig({
       textStyles,
       tokens: {
         colors: {
-          bingo: {
-            blue: { value: "#0017AC" },
+          theme: {
+            black: { value: "#232528" },
+            darkGray: { value: "#484D53" },
+            blue: { value: "#0EA5E9" },
+            white: { value: "#FBFBFB" },
+          },
+          ball: {
+            blue: { value: "#001FEB" },
             red: { value: "#C50303" },
             green: { value: "#018A16" },
             yellow: { value: "#FFCC00" },
@@ -100,7 +106,22 @@ export default defineConfig({
       },
     },
   },
+  utilities: {
+    background: {
+      shorthand: "bg",
+      className: "bg",
+      values: "colors",
+      transform(value, args) {
+        const mix = args.utils.colorMix(value);
+        // This can happen if the value format is invalid (e.g. `bg: red.300/invalid` or `bg: red.300//10`)
+        if (mix.invalid) return { background: value };
 
+        return {
+          background: mix.value,
+        };
+      },
+    },
+  },
   // The output directory for your css system
   outdir: "styled-system",
 

@@ -1,6 +1,5 @@
 type BingoSettings = {
   balls: "70" | "90";
-  freeSpace: boolean;
 };
 
 type BingoBall = {

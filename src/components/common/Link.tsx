@@ -2,7 +2,6 @@
 
 import React from "react";
 import * as NextLink from "next/link";
-import { useState, useEffect } from "react";
 import { styled } from "styled-system/jsx";
 
 export type TrackableLinkProps = React.HTMLAttributes<HTMLAnchorElement> & {

@@ -1,5 +1,6 @@
-import { useState } from "react";
 import { Flex, Grid, GridItem, styled } from "styled-system/jsx";
+
+import Button from "@/components/common/Button";
 
 function CalloutColumn({ id, callout }) {
   return (
@@ -18,7 +19,7 @@ function CalloutColumn({ id, callout }) {
           w="full"
           display="inline"
           borderWidth="2px"
-          borderColor="slate.500"
+          borderColor="theme.white"
           borderRadius="lg"
         />
       </GridItem>
@@ -59,27 +60,20 @@ export default function CalloutModalContent({
   // };
 
   return (
-    <styled.div>
+    <styled.div color="theme.white">
       <styled.h3 textStyle="h3"> Update Bingo Calls</styled.h3>
       {/* <styled.label>Bulk update by pasting a csv</styled.label>
       <styled.textarea
         w="full"
         borderWidth="2px"
-        borderColor="slate.500"
+        borderColor="theme.white"
         borderRadius="lg"
         onChange={bulkUpdateCallouts}
       />
-      <styled.button
-        py="2"
-        px="4"
-        w="full"
-        borderWidth="2px"
-        borderColor="slate.500"
-        borderRadius="full"
-        textStyle="h5"
+      <Button
       >
         Bulk Update
-      </styled.button>
+      </Button>
       <styled.p>Or update individually</styled.p> */}
       <styled.div py="4">
         <form action={saveCallouts}>
@@ -93,46 +87,17 @@ export default function CalloutModalContent({
             ))}
           </Grid>
           <Flex gap="2" py="2">
-            {" "}
-            <styled.button
-              type="reset"
-              py="2"
-              px="4"
-              w="full"
-              borderWidth="2px"
-              borderColor="slate.500"
-              borderRadius="full"
-              textStyle="h5"
-            >
+            <Button type="reset" w="full">
               Reset
-            </styled.button>
-            <styled.button
-              type="submit"
-              py="2"
-              px="4"
-              w="full"
-              borderWidth="2px"
-              borderColor="slate.500"
-              borderRadius="full"
-              textStyle="h5"
-            >
+            </Button>
+            <Button type="submit" w="full">
               Save
-            </styled.button>
+            </Button>
           </Flex>
         </form>
-        <styled.button
-          py="2"
-          px="4"
-          mt="2"
-          w="full"
-          borderWidth="2px"
-          borderColor="slate.500"
-          borderRadius="full"
-          textStyle="h5"
-          onClick={closeModal}
-        >
+        <Button mt="2" w="full" onClick={closeModal}>
           Exit
-        </styled.button>
+        </Button>
       </styled.div>
     </styled.div>
   );
