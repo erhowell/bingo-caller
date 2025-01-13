@@ -9,18 +9,27 @@ const buttonStyles = cva({
     textStyle: "h5",
     fontWeight: "bold",
     borderRadius: "full",
+    borderWidth: "2px",
   },
   variants: {
     visual: {
       primary: {
         color: "bingo.black",
         bg: "bingo.lightBlue",
+        _hover: {
+          bg: "bingo.black",
+          color: "bingo.lightBlue",
+          borderColor: "bingo.lightBlue",
+        },
       },
       secondary: {
         bg: "bingo.black",
         color: "bingo.lightBlue",
-        borderWidth: "2px",
         borderColor: "bingo.lightBlue",
+        _hover: {
+          color: "bingo.black",
+          bg: "bingo.lightBlue",
+        },
       },
       outline: {
         bg: "transparent",

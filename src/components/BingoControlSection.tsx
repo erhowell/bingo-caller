@@ -42,6 +42,11 @@ export default function BingoControlSection({
     }
   };
 
+  const resetGame = () => {
+    toggleAutoCall();
+    handleResetButtonClick();
+  };
+
   return (
     <Flex
       gap="4"
@@ -56,7 +61,7 @@ export default function BingoControlSection({
         w="full"
         flex="1"
       >
-        <Button onClick={handleResetButtonClick}>Reset Game</Button>
+        <Button onClick={resetGame}>Reset Game</Button>
         <VStack
           w="full"
           minH="200px"
@@ -65,7 +70,7 @@ export default function BingoControlSection({
           borderColor="bingo.bingo.white"
           borderRadius="lg"
         >
-          <styled.h5 textStyle="h5">current ball:</styled.h5>
+          <styled.h5 textStyle="h5">Current Ball:</styled.h5>
 
           <BingoBall
             ball={
@@ -76,7 +81,9 @@ export default function BingoControlSection({
             ballSize="lg"
           />
 
-          <styled.p>{callouts[Number(balls[callIdx].value) - 1]}</styled.p>
+          <styled.h5 textStyle="h5">
+            {callouts[Number(balls[callIdx].value) - 1]}
+          </styled.h5>
         </VStack>
       </Flex>
 
@@ -98,8 +105,14 @@ export default function BingoControlSection({
                 <Button
                   disabled={!!intervalId || callIdx < 0}
                   _disabled={{
-                    color: "bingo.white",
-                    borderColor: "bingo.white",
+                    color: "bingo.white/40",
+                    bg: "bingo.black/80",
+                    borderColor: "bingo.white/40",
+                    _hover: {
+                      color: "bingo.white/40",
+                      bg: "bingo.black/80",
+                      borderColor: "bingo.white/40",
+                    },
                   }}
                   onClick={() => {
                     if (callIdx < balls?.length) {
